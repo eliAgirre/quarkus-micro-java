@@ -1,0 +1,35 @@
+{
+   "exp":3479323410,
+   "iat":1680530658,
+   "jti":"239881fe-a57e-4822-aee1-42187c659e78",
+   "iss":"https://server.test.com",
+   "aud":"plataforma-backend",
+   "sub":"d1629940-580d-4d47-a40c-705be11852a5",
+   "typ":"Bearer",
+   "azp":"plataforma-frontend",
+   "session_state":"67c7214a-2468-4717-bf84-dbcff8dfeca6",
+   "allowed-origins":[
+      "*"
+   ],
+   "realm_access":{
+      "roles":[
+         "ticket-ingestor",
+         "admin"
+      ]
+   },
+   "resource_access":{
+      "plataforma-backend":{
+         "roles":[
+            "ticket-ingestor",
+            "admin"
+         ]
+      }
+   },
+   "scope":"email profile",
+   "sid":"67c7214a-2468-4717-bf84-dbcff8dfeca6",
+   "email_verified":false,
+   "grupos":[
+      
+   ],
+   "preferred_username":"ticket-ingestor"
+}

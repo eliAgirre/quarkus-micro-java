@@ -1,21 +1,12 @@
 <?xml version="1.0"?>
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.eai</groupId>
   <artifactId>purchase</artifactId>
   <version>1.0.0-SNAPSHOT</version>
-  <properties>
-    <compiler-plugin.version>3.8.1</compiler-plugin.version>
-    <maven.compiler.release>17</maven.compiler.release>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
-    <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-    <quarkus.platform.version>2.16.5.Final</quarkus.platform.version>
-    <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
-    <mapstruct.version>1.5.3.Final</mapstruct.version>
-  </properties>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -27,6 +18,7 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -113,7 +105,25 @@
       <artifactId>quarkus-jdbc-h2</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-joda</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!-- dependency check correction -->
+    <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+      <version>${snakeyaml.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-web</artifactId>
+      <version>${vertx.web.version}</version>
+    </dependency>
+    <!-- fin dependency check correction -->
   </dependencies>
+
   <build>
     <plugins>
       <plugin>
@@ -234,5 +244,19 @@
       </properties>
     </profile>
   </profiles>
+
+  <properties>
+    <compiler-plugin.version>3.8.1</compiler-plugin.version>
+    <maven.compiler.release>17</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
+    <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
+    <quarkus.platform.version>2.16.5.Final</quarkus.platform.version>
+    <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
+    <mapstruct.version>1.5.3.Final</mapstruct.version>
+    <snakeyaml.version>2.0</snakeyaml.version>
+    <vertx.web.version>4.4.0</vertx.web.version>
+  </properties>
 
 </project>

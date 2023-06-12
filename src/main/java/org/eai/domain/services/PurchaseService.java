@@ -41,11 +41,12 @@ public class PurchaseService {
     @Inject
     PurchaseDatesAndStoreMappers purchaseDatesAndStoreMappers;
 
-    public List<PurchaseEntity> getAllPurchases(){
-        return purchaseRepository.listAll();
+    public List<PurchaseDto> getAllPurchases(){
+        LOGGER.infof(ConstantsDomain.LOG_SERVICE_GET_ALL_PURCHASES);
+        return purchaseMappers.purchaseRequestListToPurchaseEntityList(purchaseRepository.listAll());
     }
 
-    public PagedResult<PurchaseDto> getPurchases(Page page) {
+    public PagedResult<PurchaseDto> getPurchasesPaginated(Page page) {
         LOGGER.infof(ConstantsDomain.LOG_SERVICE_GET_PAGE_RESULT, page);
         PagedResult<PurchaseDto> result = new PagedResult<>();
         PagedResult<PurchaseEntity> purchases = purchaseRepository.findPurchasesPaginated(page);
@@ -83,7 +84,7 @@ public class PurchaseService {
         return purchaseMappers.purchaseRequestListToPurchaseEntityList(purchaseEntityList);
     }
 
-    public List<PurchaseDto> purchaseByDateAndStore(PurchaseDateAndStoreRequest purchaseDateAndStoreRequest){
+    public List<PurchaseDto> getPurchaseByDateAndStore(PurchaseDateAndStoreRequest purchaseDateAndStoreRequest){
         LOGGER.infof(ConstantsDomain.LOG_SERVICE_GET_PURCHASE_BETWEEN_DATE_AND_STORE, purchaseDateAndStoreRequest);
         List<PurchaseEntity> purchaseEntityList = purchaseRepository.findPurchaseListBetweenDatesAndStore(
                                                         purchaseDatesAndStoreMappers.toDto(purchaseDateAndStoreRequest));
