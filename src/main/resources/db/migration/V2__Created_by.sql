@@ -1,0 +1,2 @@
+ALTER TABLE IF EXISTS purchases
+    ADD COLUMN IF NOT EXISTS status varchar(255);
